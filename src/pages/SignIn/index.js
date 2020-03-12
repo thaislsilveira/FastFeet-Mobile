@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Image } from 'react-native';
+import PropTypes from 'prop-types';
 
 import logo from '~/assets/logo.png';
 
-import Button from '~/components/Button';
 import Background from '~/components/Background';
-import { SignInRequest } from '~/store/modules/auth/actions';
+import { signInRequest } from '~/store/modules/auth/actions';
 
 import { Container, Form, FormInput, SubmitButton } from './styles';
 
-export default function SignIn() {
+export default function SignIn({ navigation }) {
   const [id, setId] = useState('');
   const dispatch = useDispatch();
 
+  // const loading = useSelector(state => state.auth.loading);
+
   async function handleSubmit() {
-    dispatch(SignInRequest(id));
-    setId('');
+    dispatch(signInRequest(id));
+    navigation.navigate('Dashboard');
   }
 
   return (
@@ -42,3 +44,9 @@ export default function SignIn() {
     </Background>
   );
 }
+
+SignIn.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};

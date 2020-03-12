@@ -11,14 +11,14 @@ export function* signIn({ payload }) {
 
     const response = yield call(api.get, `deliverymen/${id}`);
 
-    const { id: deliveryman_id } = response.data;
+    const { id: deliverymanId } = response.data;
 
-    if (!deliveryman_id) {
+    if (!deliverymanId) {
       Alert.alert('Erro na autenticação', 'Verifique seu id de entregador');
       return;
     }
 
-    yield put(signInSuccess(deliveryman_id));
+    yield put(signInSuccess(deliverymanId));
 
     Alert.alert('Bem vindo!');
   } catch (err) {

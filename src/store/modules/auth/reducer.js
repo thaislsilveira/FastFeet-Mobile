@@ -1,8 +1,8 @@
 import produce from 'immer';
 
 const INITIAL_STATE = {
-  id: null,
   signed: false,
+  id: null,
   loading: false,
 };
 
