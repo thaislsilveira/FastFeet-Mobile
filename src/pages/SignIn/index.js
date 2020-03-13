@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Image } from 'react-native';
-import PropTypes from 'prop-types';
 
 import logo from '~/assets/logo.png';
 
@@ -10,7 +9,7 @@ import { signInRequest } from '~/store/modules/auth/actions';
 
 import { Container, Form, FormInput, SubmitButton } from './styles';
 
-export default function SignIn({ navigation }) {
+export default function SignIn() {
   const [id, setId] = useState('');
   const dispatch = useDispatch();
 
@@ -18,7 +17,6 @@ export default function SignIn({ navigation }) {
 
   async function handleSubmit() {
     dispatch(signInRequest(id));
-    navigation.navigate('Dashboard');
   }
 
   return (
@@ -28,7 +26,6 @@ export default function SignIn({ navigation }) {
 
         <Form>
           <FormInput
-            name="id"
             keyboardType="number-pad"
             autoCorrect={false}
             returnKeyType="send"
@@ -44,9 +41,3 @@ export default function SignIn({ navigation }) {
     </Background>
   );
 }
-
-SignIn.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
-};

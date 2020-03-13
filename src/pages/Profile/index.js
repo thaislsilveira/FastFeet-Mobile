@@ -1,17 +1,16 @@
 import React from 'react';
 import { View } from 'react-native';
-
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 // import { Container } from './styles';
 
-export default function Dashboard() {
+export default function Profile() {
   return <View />;
 }
 
-Dashboard.navigationOptions = {
-  tabBarLabel: 'Entregas',
+Profile.navigationOptions = {
+  tabBarLabel: 'Meu perfil',
   tabBarIcon: ({ tintColor }) => (
-    <Icon name="format-align-justify" size={20} color={tintColor} />
+    <Icon name="person-pin-circle" size={20} color={tintColor} />
   ),
 };
