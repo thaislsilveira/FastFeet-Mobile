@@ -13,9 +13,9 @@ export function* signIn({ payload }) {
 
     yield put(
       signInSuccess(id, {
-        name: response.data.name,
-        email: response.data.email,
-        avatar: response.data.avatar,
+        name: response.data[0].name,
+        email: response.data[0].email,
+        avatar: response.data[0].avatar,
       })
     );
 
