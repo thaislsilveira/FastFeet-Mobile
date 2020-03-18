@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { parseISO, format } from 'date-fns';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { signOut } from '~/store/modules/auth/actions';
 
 import {
   Container,
-  AvatarInput,
+  Content,
   Form,
   Label,
+  Initial,
+  Avatar,
+  Image,
   FormInput,
   LogoutButton,
 } from './styles';
@@ -21,21 +25,41 @@ export default function Profile() {
     dispatch(signOut());
   }
 
+  const initial = useMemo(
+    () =>
+      profile?.name
+        .split(' ')
+        .map(n => n[0])
+        .join(''),
+    [profile]
+  );
+
   return (
     <Container>
-      <AvatarInput source={{ uri: profile?.avatar?.url }} />
-      <Form>
-        <Label>Nome completo</Label>
-        <FormInput>{profile?.name}</FormInput>
-        <Label>Email</Label>
-        <FormInput>{profile?.email}</FormInput>
-        <Label>Data de cadastro</Label>
-        <FormInput>{profile?.created_at}</FormInput>
-      </Form>
+      <Content>
+        <Avatar>
+          {profile?.avatar ? (
+            <Image source={{ uri: profile?.avatar.url }} />
+          ) : (
+            <Initial>{initial}</Initial>
+          )}
+        </Avatar>
 
-      <LogoutButton onPress={handleLogout} loading={false}>
-        Logout
-      </LogoutButton>
+        <Form>
+          <Label>Nome completo</Label>
+          <FormInput>{profile?.name}</FormInput>
+          <Label>Email</Label>
+          <FormInput>{profile?.email}</FormInput>
+          <Label>Data de cadastro</Label>
+          <FormInput>
+            {format(parseISO(profile?.created_at), 'dd/MM/yyyy')}
+          </FormInput>
+        </Form>
+
+        <LogoutButton onPress={handleLogout} loading={false}>
+          Logout
+        </LogoutButton>
+      </Content>
     </Container>
   );
 }
@@ -43,6 +67,6 @@ export default function Profile() {
 Profile.navigationOptions = {
   tabBarLabel: 'Meu perfil',
   tabBarIcon: ({ tintColor }) => (
-    <Icon name="person-pin-circle" size={20} color={tintColor} />
+    <Icon name="account-circle" size={20} color={tintColor} />
   ),
 };

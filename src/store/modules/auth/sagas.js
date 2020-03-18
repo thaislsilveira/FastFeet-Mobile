@@ -1,4 +1,5 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
+
 import { Alert } from 'react-native';
 
 import api from '~/services/api';
@@ -16,6 +17,7 @@ export function* signIn({ payload }) {
         name: response.data[0].name,
         email: response.data[0].email,
         avatar: response.data[0].avatar,
+        created_at: response.data[0].created_at,
       })
     );
 
@@ -24,8 +26,6 @@ export function* signIn({ payload }) {
       return;
     }
     */
-
-    Alert.alert('Bem vindo!');
   } catch (err) {
     Alert.alert('Falha na autenticação, verifique seus dados');
     yield put(signFailure());

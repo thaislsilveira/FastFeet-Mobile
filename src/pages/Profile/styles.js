@@ -7,21 +7,41 @@ export const Container = styled.View`
   justify-content: center;
 `;
 
-export const AvatarInput = styled.Image`
-  flex: 1;
-  background: #fff;
+export const Content = styled.View`
+  align-items: center;
+`;
+
+export const Avatar = styled.View`
+  width: 137px;
+  height: 137px;
+  background: #f4effc;
+  border-radius: 137px;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+`;
+
+export const Image = styled.Image`
+  width: 136px;
+  height: 136px;
+  border-radius: 68px;
 `;
 
 export const Form = styled.View`
   width: 100%;
   padding-top: 40px;
+  padding: 0 10px;
 `;
 
 export const Label = styled.Text`
   font-size: 12px;
   color: #666;
   font-family: 'Roboto-Regular';
+`;
+
+export const Initial = styled.Text`
+  color: #a28fd0;
+  font-size: 60px;
 `;
 
 export const FormInput = styled.Text`
