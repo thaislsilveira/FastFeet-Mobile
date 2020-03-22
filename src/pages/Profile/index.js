@@ -20,7 +20,7 @@ import {
 export default function Profile() {
   const dispatch = useDispatch();
   const profile = useSelector(state => state?.user?.profile);
-
+  console.log(profile.avatar.path);
   function handleLogout() {
     dispatch(signOut());
   }
@@ -39,7 +39,13 @@ export default function Profile() {
       <Content>
         <Avatar>
           {profile?.avatar ? (
-            <Image source={{ uri: profile?.avatar.url }} />
+            <Image
+              source={{
+                uri: __DEV__
+                  ? `http://10.0.2.2:3333/files/${profile?.avatar?.path}`
+                  : profile?.avatar?.url,
+              }}
+            />
           ) : (
             <Initial>{initial}</Initial>
           )}

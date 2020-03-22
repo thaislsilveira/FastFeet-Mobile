@@ -56,5 +56,5 @@ export const LogoutButton = styled(Button)`
   background: #e74040;
   height: 40px;
   margin-top: 15px;
-  width: 100%;
+  width: 95%;
 `;

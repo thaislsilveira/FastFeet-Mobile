@@ -23,10 +23,20 @@ import {
   MenuTitle,
   Options,
   Option,
+  List,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardBody,
+  Line,
+  Point,
+  PointsSubtitle,
+  PointsText,
+  Points,
 } from './styles';
 
 export default function Dashboard() {
-  const [deliveries, setDeliveries] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [typeDeliveries, setTypeDeliveries] = useState('PENDENTES');
 
   const dispatch = useDispatch();
@@ -74,7 +84,7 @@ export default function Dashboard() {
           : '- - / - - / - -',
       }));
 
-      setDeliveries(data);
+      setOrders(data);
     }
 
     loadDeliveries();
@@ -85,7 +95,13 @@ export default function Dashboard() {
       <Header>
         <Avatar>
           {profile?.avatar ? (
-            <Image source={{ uri: profile?.avatar.url }} />
+            <Image
+              source={{
+                uri: __DEV__
+                  ? `http://10.0.2.2:3333/files/${profile?.avatar?.path}`
+                  : profile?.avatar?.url,
+              }}
+            />
           ) : (
             <Initial>{initial}</Initial>
           )}
@@ -96,7 +112,7 @@ export default function Dashboard() {
             <Name>{profile?.name}</Name>
           </ContentHeaderText>
           <Logout onPress={handleLogout}>
-            <Icon name="exit-to-app" size={25} color="#E74040" />
+            <Icon name="exit-to-app" size={22} color="#E74040" />
           </Logout>
         </ContentHeader>
       </Header>
@@ -120,6 +136,45 @@ export default function Dashboard() {
           </Option>
         </Options>
       </Menu>
+      <List
+        data={orders}
+        keyExtractor={item => String(item.id)}
+        renderItem={({ item }) => (
+          <Card>
+            <CardHeader>
+              <Icon name="local-shipping" size={22} color="#7D40E7" />
+              <CardTitle>Encomenda 0{item.id}</CardTitle>
+            </CardHeader>
+            <CardBody>
+              <Line />
+              <Points>
+                <Point
+                  complete={item.start_date === null && item.end_date === null}
+                />
+              </Points>
+              <Points>
+                <Point
+                  complete={item.start_date !== null && item.end_date === null}
+                />
+              </Points>
+              <Points>
+                <Point
+                  complete={item.start_date !== null && item.end_date !== null}
+                />
+              </Points>
+              <PointsSubtitle>
+                <PointsText>Aguardando Retirada</PointsText>
+              </PointsSubtitle>
+              <PointsSubtitle>
+                <PointsText>Retirada</PointsText>
+              </PointsSubtitle>
+              <PointsSubtitle>
+                <PointsText>Entregue</PointsText>
+              </PointsSubtitle>
+            </CardBody>
+          </Card>
+        )}
+      />
     </Container>
   );
 }

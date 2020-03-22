@@ -85,3 +85,72 @@ export const Option = styled.Text`
   color: ${props => (props.selected ? '#7D40E7' : '#999999')};
   text-decoration: ${props => (props.selected ? 'underline' : 'none')};
 `;
+
+export const List = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+})`
+  margin: 20px 0 40px 0;
+`;
+
+export const Card = styled.View`
+  background: #fff;
+  margin: 0 20px;
+  margin-bottom: 10px;
+  padding: 15px 30px 0 15px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+`;
+
+export const CardHeader = styled.View`
+  padding: 10px 10px 10px 10px;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const CardTitle = styled.Text`
+  font-size: 14px;
+  font-weight: bold;
+  color: #7d40e7;
+  margin-left: 5px;
+`;
+
+export const CardBody = styled.View`
+  padding: 0 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const Line = styled.View`
+  margin-left: 50px;
+  position: absolute;
+  width: 180px;
+  height: 1px;
+  background: #7d40e7;
+`;
+
+export const Point = styled.View`
+  width: 10px;
+  height: 10px;
+  background: ${props => (props.complete ? '#7d40e7' : '#fff')};
+  border: 1px solid #7d40e7;
+  border-radius: 9px;
+  align-items: center;
+`;
+
+export const Points = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 40px;
+`;
+export const PointsSubtitle = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const PointsText = styled.Text`
+  margin-top: 20px;
+  font-size: 10px;
+  color: #999;
+  align-items: center;
+`;
