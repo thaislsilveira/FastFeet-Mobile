@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { View, Text } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
+import { ProgressSteps, ProgressStep } from 'react-native-progress-steps';
 import { parseISO, format } from 'date-fns';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -28,11 +30,6 @@ import {
   CardHeader,
   CardTitle,
   CardBody,
-  Line,
-  Point,
-  PointsSubtitle,
-  PointsText,
-  Points,
 } from './styles';
 
 export default function Dashboard() {
@@ -54,6 +51,16 @@ export default function Dashboard() {
 
   function handleDelivered() {
     setTypeDeliveries('ENTREGUES');
+  }
+
+  function handleActiveStep(start_date, end_date) {
+    if (start_date === null && end_date === null) {
+      return 0;
+    }
+    if (start_date !== null && end_date === null) {
+      return 1;
+    }
+    return 2;
   }
 
   const initial = useMemo(
@@ -146,31 +153,46 @@ export default function Dashboard() {
               <CardTitle>Encomenda 0{item.id}</CardTitle>
             </CardHeader>
             <CardBody>
-              <Line />
-              <Points>
-                <Point
-                  complete={item.start_date === null && item.end_date === null}
-                />
-              </Points>
-              <Points>
-                <Point
-                  complete={item.start_date !== null && item.end_date === null}
-                />
-              </Points>
-              <Points>
-                <Point
-                  complete={item.start_date !== null && item.end_date !== null}
-                />
-              </Points>
-              <PointsSubtitle>
-                <PointsText>Aguardando Retirada</PointsText>
-              </PointsSubtitle>
-              <PointsSubtitle>
-                <PointsText>Retirada</PointsText>
-              </PointsSubtitle>
-              <PointsSubtitle>
-                <PointsText>Entregue</PointsText>
-              </PointsSubtitle>
+              <ProgressSteps
+                borderWidth={3}
+                activeStepIconBorderColor="#7d40e7"
+                activeLabelColor="#444444"
+                labelColor="#999999"
+                progressBarColor="#7d40e7"
+                completedStepIconColor="#7d40e7"
+                completedProgressBarColor="#7d40e7"
+                activeStepNumColor="#7d40e7"
+                activeStepIconColor="#7d40e7"
+                activeStep={handleActiveStep(item.start_date, item.end_date)}
+              >
+                <ProgressStep
+                  nextBtnDisabled
+                  previousBtnDisabled
+                  nextBtnText=""
+                  previousBtnText=""
+                  label="Aguardando Retirada"
+                >
+                  <View style={{ alignItems: 'center' }} />
+                </ProgressStep>
+                <ProgressStep
+                  nextBtnDisabled
+                  previousBtnDisabled
+                  nextBtnText=""
+                  previousBtnText=""
+                  label="Retirada"
+                >
+                  <View style={{ alignItems: 'center' }} />
+                </ProgressStep>
+                <ProgressStep
+                  nextBtnDisabled
+                  previousBtnDisabled
+                  nextBtnText=""
+                  previousBtnText=""
+                  label="Entregue"
+                >
+                  <View style={{ alignItems: 'center' }} />
+                </ProgressStep>
+              </ProgressSteps>
             </CardBody>
           </Card>
         )}

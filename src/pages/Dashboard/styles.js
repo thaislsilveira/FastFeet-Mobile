@@ -121,21 +121,8 @@ export const CardBody = styled.View`
   align-items: center;
 `;
 
-export const Line = styled.View`
-  margin-left: 50px;
-  position: absolute;
-  width: 180px;
-  height: 1px;
-  background: #7d40e7;
-`;
-
 export const Point = styled.View`
-  width: 10px;
-  height: 10px;
   background: ${props => (props.complete ? '#7d40e7' : '#fff')};
-  border: 1px solid #7d40e7;
-  border-radius: 9px;
-  align-items: center;
 `;
 
 export const Points = styled.View`
