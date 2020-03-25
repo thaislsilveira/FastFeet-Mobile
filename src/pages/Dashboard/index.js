@@ -52,9 +52,9 @@ export default function Dashboard({ navigation }) {
   const profile = useSelector(state => state?.user?.profile);
   const auth = useSelector(state => state.auth);
 
-  function handleShowDetail() {
-    navigation.navigate('Details');
-  }
+  // function handleShowDetail(order) {
+  //   navigation.navigate('Details');
+  // }
 
   function handleLogout() {
     dispatch(signOut());
@@ -180,19 +180,25 @@ export default function Dashboard({ navigation }) {
               </Points>
             </CardBody>
             <CardFooter>
-              <CardFooters />
               <CardFooters>
                 <LabelFooter>Data</LabelFooter>
-                <TextFooter>{item.start_date}</TextFooter>
+                <TextFooter>
+                  {item.start_date === null
+                    ? '- - / - - / - -'
+                    : format(parseISO(item.start_date), 'dd/MM/yyyy')}
+                </TextFooter>
                 <LabelFooter>Cidade</LabelFooter>
                 <TextFooter>{item.recipient.city}</TextFooter>
                 <View>
-                  <LinkFooter onPress={() => handleShowDetail(item)}>
+                  <LinkFooter
+                    onPress={() => {
+                      navigation.navigate('Details', { item });
+                    }}
+                  >
                     Ver detalhes
                   </LinkFooter>
                 </View>
               </CardFooters>
-              <CardFooters />
             </CardFooter>
           </Card>
         )}

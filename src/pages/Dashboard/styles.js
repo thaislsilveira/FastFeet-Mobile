@@ -96,7 +96,7 @@ export const Card = styled.View`
   background: #fff;
   margin: 0 20px;
   margin-bottom: 10px;
-  padding: 15px 30px 0 15px;
+  padding: 15px 20px 10px 5px;
   border-radius: 4px;
   border: 1px solid #eee;
 `;
@@ -122,16 +122,16 @@ export const CardBody = styled.View`
 `;
 
 export const Line = styled.View`
-  margin-left: 40px;
+  margin-left: 50px;
   position: absolute;
   top: 4px;
-  width: 160px;
+  width: 180px;
   height: 2px;
   background: #7d40e7;
 `;
 
 export const Point = styled.View`
-  margin-left: 30px;
+  margin-left: 40px;
   width: 10px;
   height: 10px;
   background: ${props => (props.complete ? '#7d40e7' : '#fff')};
@@ -150,7 +150,7 @@ export const Points = styled.View`
 export const PointsText = styled.Text`
   margin: auto;
   margin-top: 20px;
-  margin-right: 20px;
+  margin-right: 15px;
   height: 30px;
   text-align: center;
   font-size: 10px;
@@ -159,34 +159,39 @@ export const PointsText = styled.Text`
 `;
 
 export const CardFooter = styled.View`
-  height: 64px;
-  background: #f8f9fd;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 21px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 `;
 
 export const CardFooters = styled.View`
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
 `;
 
 export const LabelFooter = styled.Text`
+  margin-top: 10px;
+  margin-left: 10px;
   font-size: 8px;
   font-weight: bold;
   color: #999999;
 `;
 
 export const TextFooter = styled.Text`
+  margin: auto;
+  margin-top: 25px;
+  margin-right: 2px;
+  width: 35%;
+  height: 40px;
+  text-align: center;
   font-size: 12px;
   font-weight: bold;
   color: #444444;
 `;
 
 export const LinkFooter = styled.Text`
+  margin-top: 20px;
   color: #7d40e7;
 `;
