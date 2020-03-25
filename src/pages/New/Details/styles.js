@@ -82,7 +82,7 @@ export const CardDateText = styled.Text`
   font-weight: normal;
 `;
 export const Menu = styled.View`
-  margin-top: 80px;
+  margin-top: 70px;
 `;
 
 export const MenuBlock = styled.View`
