@@ -8,6 +8,7 @@ import Profile from './pages/Profile';
 import Details from './pages/New/Details';
 import Problem from './pages/New/Problem';
 import ProblemList from './pages/New/ProblemList';
+import Confirm from './pages/New/Confirm';
 
 export default (signedIn = false) =>
   createAppContainer(
@@ -25,6 +26,7 @@ export default (signedIn = false) =>
                   Details,
                   Problem,
                   ProblemList,
+                  Confirm,
                 },
                 {
                   defaultNavigationOptions: {

@@ -99,6 +99,16 @@ export default function Details({ navigation }) {
                   <ButtonTitle>Visualizar{`\n`}Problema</ButtonTitle>
                 </Button>
               </MenuBlock>
+              <MenuBlock>
+                <Button
+                  onPress={() =>
+                    navigation.navigate('Confirm', { order_id: order.id })
+                  }
+                >
+                  <Icon name="check-circle" size={22} color="#7D40E7" />
+                  <ButtonTitle>Confirmar Entrega</ButtonTitle>
+                </Button>
+              </MenuBlock>
             </Menu>
           </CardBody>
         </Card>
