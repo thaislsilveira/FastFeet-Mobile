@@ -8,7 +8,7 @@ export const Container = styled.SafeAreaView`
 
 export const Content = styled.View`
   align-items: center;
-  top: -70px;
+  top: -90px;
 `;
 
 export const Card = styled.View`
@@ -82,6 +82,10 @@ export const CardDateText = styled.Text`
   font-weight: normal;
 `;
 export const Menu = styled.View`
+  margin: auto;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-around;
   margin-top: 70px;
 `;
 

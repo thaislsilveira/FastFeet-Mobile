@@ -3,7 +3,7 @@ import { Alert } from 'react-native';
 import { useSelector } from 'react-redux';
 import api from '~/services/api';
 
-import { Container, Content, SubmitButton, Text } from './styles';
+import { Container, Content, Card, SubmitButton, Text } from './styles';
 import Background from '~/components/Background';
 
 export default function Problem({ navigation }) {
@@ -23,9 +23,10 @@ export default function Problem({ navigation }) {
   }
 
   return (
-    <Background>
-      <Container>
-        <Content>
+    <Container>
+      <Background />
+      <Content>
+        <Card>
           <Text
             multiline
             autoFocus
@@ -35,9 +36,9 @@ export default function Problem({ navigation }) {
           />
 
           <SubmitButton onPress={handleSubmit}>Enviar </SubmitButton>
-        </Content>
-      </Container>
-    </Background>
+        </Card>
+      </Content>
+    </Container>
   );
 }
 

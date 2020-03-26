@@ -89,6 +89,16 @@ export default function Details({ navigation }) {
                   <ButtonTitle>Informar{`\n`}Problema</ButtonTitle>
                 </Button>
               </MenuBlock>
+              <MenuBlock>
+                <Button
+                  onPress={() =>
+                    navigation.navigate('ProblemList', { order_id: order.id })
+                  }
+                >
+                  <Icon name="info-outline" color="#E7BA40" size={20} />
+                  <ButtonTitle>Visualizar{`\n`}Problema</ButtonTitle>
+                </Button>
+              </MenuBlock>
             </Menu>
           </CardBody>
         </Card>
