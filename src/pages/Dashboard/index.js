@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { useNavigation } from '@react-navigation/native';
-
 import { View } from 'react-native';
 import { parseISO, format } from 'date-fns';
 
@@ -100,7 +98,11 @@ export default function Dashboard({ navigation }) {
     }
 
     loadDeliveries();
-  }, [auth.id, typeDeliveries]);
+
+    navigation.addListener('didFocus', () => {
+      loadDeliveries();
+    });
+  }, [auth.id, navigation, typeDeliveries]);
 
   return (
     <Container>
@@ -192,7 +194,10 @@ export default function Dashboard({ navigation }) {
                 <View>
                   <LinkFooter
                     onPress={() => {
-                      navigation.navigate('Details', { item });
+                      navigation.navigate('Details', {
+                        item,
+                        auth,
+                      });
                     }}
                   >
                     Ver detalhes
