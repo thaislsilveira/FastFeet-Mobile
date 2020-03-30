@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
 import { format, parseISO } from 'date-fns';
-import pt from 'date-fns/locale/pt-BR';
-import { useSelector } from 'react-redux';
+
 import { withNavigationFocus } from 'react-navigation';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import api from '~/services/api';
 
 import {
   Container,
   Content,
+  Text,
   ContentTitle,
   Description,
   Card,
@@ -54,7 +54,9 @@ function ProblemList({ navigation, isFocused }) {
       <Content>
         <ContentTitle>Encomenda 0{orderId}</ContentTitle>
         <Card>
-          {problemsList && (
+          {problemsList === null ? (
+            <Text>Não existe problemas para serem listados!</Text>
+          ) : (
             <RequestList
               data={problemsList}
               keyExtractor={item => String(item.id)}

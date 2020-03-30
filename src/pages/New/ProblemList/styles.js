@@ -24,6 +24,13 @@ export const Card = styled.View`
   margin-bottom: 9px;
 `;
 
+export const Text = styled.Text`
+  margin-left: 5px;
+  color: #7d40e7;
+  font-size: 14px;
+  font-weight: bold;
+`;
+
 export const RequestList = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
 })``;

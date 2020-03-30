@@ -22,6 +22,7 @@ export const Card = styled.View`
 export const CardHeader = styled.View`
   flex-direction: row;
   align-items: center;
+  margin-top: 20px;
 `;
 
 export const CardTitle = styled.Text`
@@ -32,7 +33,8 @@ export const CardTitle = styled.Text`
 `;
 
 export const CardBody = styled.View`
-  margin-top: 5px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 `;
 
 export const CardLabel = styled.Text`

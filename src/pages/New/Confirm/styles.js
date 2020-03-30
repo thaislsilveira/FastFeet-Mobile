@@ -18,7 +18,7 @@ export const ContentTitle = styled.Text`
   color: #fff;
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 85px;
 `;
 
 export const Card = styled.View`
@@ -30,7 +30,7 @@ export const Card = styled.View`
 
 export const TakePicture = styled.View`
   width: 360px;
-  height: 385px;
+  height: 315px;
 `;
 export const CameraBackground = styled.View`
   width: 100%;
@@ -60,6 +60,6 @@ export const ButtonPicture = styled(RectButton)`
 `;
 
 export const SubmitButton = styled(Button)`
-  margin-top: 10px;
+  margin-top: 40px;
   background: #7d40e7;
 `;

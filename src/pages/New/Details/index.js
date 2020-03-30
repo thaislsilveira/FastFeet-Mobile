@@ -47,14 +47,6 @@ export default function Details({ navigation }) {
     [order]
   );
 
-  const deliveryDate = useMemo(
-    () =>
-      order && order.end_date !== null
-        ? format(parseISO(order.end_date), 'dd/MM/yyyy')
-        : ' - - / - - / - -',
-    [order]
-  );
-
   async function withdrawalDelivery(orderId, deliverymanId) {
     const hourStart = new Date();
 
@@ -70,8 +62,6 @@ export default function Details({ navigation }) {
       Alert.alert('Ops', `${err.response.data.error}`);
     }
   }
-
-  function buttonsConfirm() {}
 
   return (
     <Container>
@@ -111,7 +101,11 @@ export default function Details({ navigation }) {
                     </CardDate>
                     <CardDate>
                       <CardDateLabel>Data de Entrega</CardDateLabel>
-                      <CardDateText>{deliveryDate}</CardDateText>
+                      <CardDateText>
+                        {order.end_date !== null
+                          ? format(parseISO(order.end_date), 'dd/MM/yyyy')
+                          : ' - - / - - / - -'}
+                      </CardDateText>
                     </CardDate>
                   </CardDates>
                 </CardBody>
@@ -151,8 +145,12 @@ export default function Details({ navigation }) {
                   ) : (
                     <Button
                       onPress={() =>
-                        navigation.navigate('Confirm', { order_id: order.id })
+                        navigation.navigate('Confirm', {
+                          order,
+                          deliveryman,
+                        })
                       }
+                      loading
                     >
                       <Icon name="check-circle" size={22} color="#7D40E7" />
                       <ButtonTitle>Confirmar Entrega</ButtonTitle>

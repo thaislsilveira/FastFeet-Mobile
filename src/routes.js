@@ -48,10 +48,10 @@ export default (signedIn = false) =>
           {
             tabBarOptions: {
               keyboardHidesTabBar: true,
-              activeTintColor: '#FFF',
-              inactiveTintColor: 'rgba(255,255,255, 0.6)',
+              activeTintColor: '#7D40E7',
+              inactiveTintColor: '#999999',
               style: {
-                backgroundColor: '#8d41a8',
+                backgroundColor: '#FFFFFF',
               },
             },
           }
