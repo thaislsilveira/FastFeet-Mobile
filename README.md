@@ -22,7 +22,7 @@ yarn
 ``` 
 Você também precisará do react-native-cli e de um emulador configurado, você pode configurar o Genymotion, ou o AndroidStudio.  
 
-A Rocketseat possui um tutorial para a configuração através do seguinte link: [**tutorial**](https://docs.rocketseat.dev/ambiente-react-native/android/linux)
+A Rocketseat possui um tutorial para a configuração através do seguinte link: [*tutorial*](https://docs.rocketseat.dev/ambiente-react-native/android/linux)
 
 -Para instalar o CLI do react-native execute o comando abaixo:
 
