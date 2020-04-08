@@ -30,6 +30,9 @@ export default (signedIn = false) =>
                 },
                 {
                   defaultNavigationOptions: {
+                    headerStyle: {
+                      height: 50,
+                    },
                     headerTitleAlign: 'center',
                     headerTitleStyle: {
                       fontWeight: 'bold',

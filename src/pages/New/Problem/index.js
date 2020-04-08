@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert } from 'react-native';
+import { Alert, KeyboardAvoidingView } from 'react-native';
 import { useSelector } from 'react-redux';
 import api from '~/services/api';
 
@@ -34,7 +34,6 @@ export default function Problem({ navigation }) {
             onChangeText={setDescription}
             placeholder=" Inclua aqui o problema que ocorreu na entrega."
           />
-
           <SubmitButton onPress={handleSubmit}>Enviar </SubmitButton>
         </Card>
       </Content>
