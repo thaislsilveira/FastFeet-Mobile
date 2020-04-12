@@ -16,7 +16,6 @@ Você precisará também do backend do projeto, que está no seguinte repositór
 -Execute um dos comandos abaixo:
 
 ```
-npm install
 yarn
 
 ``` 
@@ -28,5 +27,5 @@ A Rocketseat possui um tutorial para a configuração através do seguinte link:
 
 ```
 yarn add @react-native-community/cli
-npm install @react-native-community/cli
+
 ``` 
