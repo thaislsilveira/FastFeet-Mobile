@@ -20,12 +20,6 @@ export function* signIn({ payload }) {
         created_at: response.data[0].created_at,
       })
     );
-
-    /* if (!deliverymanId) {
-      Alert.alert('Erro na autenticação', 'Verifique seu id de entregador');
-      return;
-    }
-    */
   } catch (err) {
     Alert.alert('Falha na autenticação, verifique seus dados');
     yield put(signFailure());

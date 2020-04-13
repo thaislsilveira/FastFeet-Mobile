@@ -13,6 +13,7 @@ import {
   ContentTitle,
   Description,
   Card,
+  CardText,
   RequestList,
   RequestHeader,
   RequestHeaderContent,
@@ -23,18 +24,11 @@ import Background from '~/components/Background';
 
 function ProblemList({ navigation, isFocused }) {
   const orderId = navigation.getParam('order_id');
-  const [problemsList, setProblemsList] = useState([]);
+  const [problemsList, setProblemsList] = useState(null);
 
   async function getProblemsList() {
     try {
       const response = await api.get(`deliveryproblems/${orderId}/problems`);
-
-      // const data = response.data.map(request => ({
-      //   ...request,
-      //   created_at: formatRelative(parseISO(request.createdAt), new Date(), {
-      //     locale: pt,
-      //   }),
-      // }));
 
       setProblemsList(response.data);
     } catch (err) {
@@ -52,11 +46,9 @@ function ProblemList({ navigation, isFocused }) {
     <Container>
       <Background />
       <Content>
-        <ContentTitle>Encomenda 0{orderId}</ContentTitle>
+        <ContentTitle>Encomenda {orderId}</ContentTitle>
         <Card>
-          {problemsList === null ? (
-            <Text>Não existe problemas para serem listados!</Text>
-          ) : (
+          {problemsList && problemsList[0] ? (
             <RequestList
               data={problemsList}
               keyExtractor={item => String(item.id)}
@@ -70,6 +62,10 @@ function ProblemList({ navigation, isFocused }) {
                 </RequestHeader>
               )}
             />
+          ) : (
+            <CardText>
+              <Text>Não existe problemas para serem listados!</Text>
+            </CardText>
           )}
         </Card>
       </Content>

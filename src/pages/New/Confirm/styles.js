@@ -11,17 +11,17 @@ export const Container = styled.SafeAreaView`
 
 export const Content = styled.View`
   align-items: center;
-  top: -90px;
+  top: -130px;
 `;
 
 export const ContentTitle = styled.Text`
   color: #fff;
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 85px;
 `;
 
 export const Card = styled.View`
+  margin-top: 40px;
   background: #fff;
   width: 360px;
   border-radius: 4px;
@@ -30,20 +30,22 @@ export const Card = styled.View`
 
 export const TakePicture = styled.View`
   width: 360px;
-  height: 315px;
+  height: 395px;
 `;
 export const CameraBackground = styled.View`
-  width: 100%;
+  flex: 1;
+  flex-direction: column;
+  width: 360px;
+  height: 315px;
   border-radius: 4px;
-  margin: 0 auto;
-  position: relative;
   overflow: hidden;
 `;
 
 export const Camera = styled(RNCamera)`
-  width: 100%;
-  height: 100%;
-  align-items: center;
+  flex: 1;
+  flex-grow: 1;
+  align-items: flex-start;
+  align-content: flex-start;
 `;
 
 export const ButtonPicture = styled(RectButton)`

@@ -10,17 +10,17 @@ import {
   Content,
   Form,
   Label,
-  Initial,
   Avatar,
   Image,
   FormInput,
   LogoutButton,
 } from './styles';
 
+import AvatarInitial from '~/components/AvatarInitial';
+
 export default function Profile() {
   const dispatch = useDispatch();
   const profile = useSelector(state => state?.user?.profile);
-  console.log(profile.avatar.path);
   function handleLogout() {
     dispatch(signOut());
   }
@@ -37,8 +37,8 @@ export default function Profile() {
   return (
     <Container>
       <Content>
-        <Avatar>
-          {profile?.avatar ? (
+        {profile?.avatar ? (
+          <Avatar>
             <Image
               source={{
                 uri: __DEV__
@@ -46,10 +46,10 @@ export default function Profile() {
                   : profile?.avatar?.url,
               }}
             />
-          ) : (
-            <Initial>{initial}</Initial>
-          )}
-        </Avatar>
+          </Avatar>
+        ) : (
+          <AvatarInitial big>{initial}</AvatarInitial>
+        )}
 
         <Form>
           <Label>Nome completo</Label>

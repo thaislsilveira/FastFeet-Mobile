@@ -9,9 +9,15 @@ export const Container = styled.SafeAreaView`
 export const Content = styled.View`
   align-items: center;
 `;
+export const ContentTitle = styled.Text`
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  top: -130px;
+`;
 
 export const Card = styled.View`
-  top: -60px;
+  top: -100px;
   padding: 10px 20px 10px 20px;
   width: 400px;
   border-radius: 4px;

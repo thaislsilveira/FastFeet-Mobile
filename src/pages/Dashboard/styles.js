@@ -26,11 +26,6 @@ export const Image = styled.Image`
   border-radius: 68px;
 `;
 
-export const Initial = styled.Text`
-  color: #a28fd0;
-  font-size: 31px;
-`;
-
 export const ContentHeader = styled.View`
   padding: 0 20px;
   flex: 1;

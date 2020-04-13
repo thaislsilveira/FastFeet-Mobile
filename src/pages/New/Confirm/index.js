@@ -16,7 +16,7 @@ import {
   SubmitButton,
 } from './styles';
 import Background from '~/components/Background';
-import ImageBacground from '~/assets/delivery.png';
+import ImageBackground from '~/assets/delivery.png';
 
 export default function Confirm({ navigation }) {
   const camera = useRef(null);
@@ -78,20 +78,20 @@ export default function Confirm({ navigation }) {
         <ContentTitle>Confirmar Entrega</ContentTitle>
         <Card>
           <TakePicture>
-            {pictureUri ? (
-              <CameraBackground>
+            <CameraBackground>
+              {pictureUri ? (
                 <Image
                   source={{ uri: pictureUri }}
-                  style={{ height: '100%' }}
+                  style={{ height: '100%', resizeMode: 'cover' }}
                 />
-              </CameraBackground>
-            ) : (
-              <Camera
-                ref={camera}
-                type={Camera.Constants.Type.back}
-                captureAudio={false}
-              />
-            )}
+              ) : (
+                <Camera
+                  ref={camera}
+                  type={Camera.Constants.Type.back}
+                  captureAudio={false}
+                />
+              )}
+            </CameraBackground>
           </TakePicture>
 
           <ButtonPicture onPress={() => takePicture()}>

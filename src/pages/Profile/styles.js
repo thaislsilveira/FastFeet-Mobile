@@ -39,11 +39,6 @@ export const Label = styled.Text`
   font-family: 'Roboto-Regular';
 `;
 
-export const Initial = styled.Text`
-  color: #a28fd0;
-  font-size: 60px;
-`;
-
 export const FormInput = styled.Text`
   font-size: 22px;
   font-weight: bold;

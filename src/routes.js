@@ -1,6 +1,8 @@
+import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
@@ -19,10 +21,10 @@ export default (signedIn = false) =>
         }),
         App: createBottomTabNavigator(
           {
-            Dashboard,
-            New: {
+            Entregas: {
               screen: createStackNavigator(
                 {
+                  Dashboard,
                   Details,
                   Problem,
                   ProblemList,
@@ -45,6 +47,16 @@ export default (signedIn = false) =>
                   },
                 }
               ),
+              navigationOptions: {
+                tabBarLabel: 'Entregas',
+                tabBarIcon: ({ tintColor }) => (
+                  <Icon
+                    name="format-align-justify"
+                    size={20}
+                    color={tintColor}
+                  />
+                ),
+              },
             },
             Profile,
           },

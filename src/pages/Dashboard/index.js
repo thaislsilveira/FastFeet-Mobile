@@ -15,7 +15,6 @@ import {
   Header,
   Avatar,
   Image,
-  Initial,
   ContentHeader,
   ContentHeaderText,
   Welcome,
@@ -40,6 +39,8 @@ import {
   TextFooter,
   LinkFooter,
 } from './styles';
+
+import AvatarInitial from '~/components/AvatarInitial';
 
 export default function Dashboard({ navigation }) {
   const [orders, setOrders] = useState([]);
@@ -107,8 +108,8 @@ export default function Dashboard({ navigation }) {
   return (
     <Container>
       <Header>
-        <Avatar>
-          {profile?.avatar ? (
+        {profile?.avatar ? (
+          <Avatar>
             <Image
               source={{
                 uri: __DEV__
@@ -116,10 +117,10 @@ export default function Dashboard({ navigation }) {
                   : profile?.avatar?.url,
               }}
             />
-          ) : (
-            <Initial>{initial}</Initial>
-          )}
-        </Avatar>
+          </Avatar>
+        ) : (
+          <AvatarInitial>{initial}</AvatarInitial>
+        )}
         <ContentHeader>
           <ContentHeaderText>
             <Welcome>Bem vindo de volta,</Welcome>
@@ -157,20 +158,27 @@ export default function Dashboard({ navigation }) {
           <Card>
             <CardHeader>
               <Icon name="local-shipping" size={22} color="#7D40E7" />
-              <CardTitle>Encomenda 0{item.id}</CardTitle>
+              <CardTitle>Encomenda {item.id}</CardTitle>
             </CardHeader>
             <CardBody>
               <Line />
               <Points>
                 <Point
-                  complete={item.start_date === null && item.end_date === null}
+                  complete={
+                    (item.start_date === null && item.end_date === null) ||
+                    (item.start_date !== null && item.end_date === null) ||
+                    (item.start_date !== null && item.end_date !== null)
+                  }
                 />
 
                 <PointsText>Aguardando Retirada</PointsText>
               </Points>
               <Points>
                 <Point
-                  complete={item.start_date !== null && item.end_date === null}
+                  complete={
+                    (item.start_date !== null && item.end_date === null) ||
+                    (item.start_date !== null && item.end_date !== null)
+                  }
                 />
                 <PointsText>Retirada</PointsText>
               </Points>

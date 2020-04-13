@@ -4,7 +4,7 @@ import { Image } from 'react-native';
 
 import logo from '~/assets/logo.png';
 
-import Background from '~/components/Background';
+import Background from '~/components/BackgroundSignIn';
 import { signInRequest } from '~/store/modules/auth/actions';
 
 import { Container, Form, FormInput, SubmitButton } from './styles';
@@ -12,8 +12,6 @@ import { Container, Form, FormInput, SubmitButton } from './styles';
 export default function SignIn() {
   const [id, setId] = useState('');
   const dispatch = useDispatch();
-
-  // const loading = useSelector(state => state.auth.loading);
 
   async function handleSubmit() {
     dispatch(signInRequest(id));

@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
-import { Alert, KeyboardAvoidingView } from 'react-native';
-import { useSelector } from 'react-redux';
+import { Alert } from 'react-native';
 import api from '~/services/api';
 
-import { Container, Content, Card, SubmitButton, Text } from './styles';
+import {
+  Container,
+  Content,
+  ContentTitle,
+  Card,
+  SubmitButton,
+  Text,
+} from './styles';
 import Background from '~/components/Background';
 
 export default function Problem({ navigation }) {
@@ -16,23 +22,28 @@ export default function Problem({ navigation }) {
         description,
       });
       Alert.alert('Sucesso', 'O Problema foi registrado com sucesso!');
+      setDescription('');
       navigation.navigate('Requests');
     } catch (err) {
       Alert.alert('Ops', `${err.response.data.error}`);
     }
   }
-
   return (
     <Container>
       <Background />
       <Content>
+        <ContentTitle>Informar problema</ContentTitle>
         <Card>
           <Text
             multiline
             autoFocus
+            autoCorrect={false}
+            returnKeyType="send"
+            autoCapitalize="none"
             value={description}
             onChangeText={setDescription}
             placeholder=" Inclua aqui o problema que ocorreu na entrega."
+            onFocus={() => setDescription({ description: '' })}
           />
           <SubmitButton onPress={handleSubmit}>Enviar </SubmitButton>
         </Card>
@@ -40,8 +51,3 @@ export default function Problem({ navigation }) {
     </Container>
   );
 }
-
-Problem.navigationOptions = ({ navigation }) => ({
-  title: 'Informar problema',
-  headerTitleStyle: { textAlign: 'center' },
-});

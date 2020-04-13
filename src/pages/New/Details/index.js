@@ -165,3 +165,8 @@ export default function Details({ navigation }) {
     </Container>
   );
 }
+
+Details.navigationOptions = ({ navigation }) => ({
+  title: 'Detalhes da encomenda',
+  headerTitleStyle: { textAlign: 'center' },
+});
