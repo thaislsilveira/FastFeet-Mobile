@@ -41,7 +41,7 @@ export default function Problem({ navigation }) {
             returnKeyType="send"
             autoCapitalize="none"
             value={description}
-            onChangeText={setDescription}
+            onChangeText={text => setDescription(text)}
             placeholder=" Inclua aqui o problema que ocorreu na entrega."
             onFocus={() => setDescription({ description: '' })}
           />
