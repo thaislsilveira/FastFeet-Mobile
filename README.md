@@ -22,7 +22,6 @@ Você precisará também do backend do projeto, que está no seguinte repositór
 
 ```
 yarn
-
 ``` 
 Você também precisará do react-native-cli e de um emulador configurado, você pode configurar o Genymotion, ou o AndroidStudio.  
 
@@ -32,7 +31,6 @@ A Rocketseat possui um tutorial para a configuração através do seguinte link:
 
 ```
 yarn add @react-native-community/cli
-
 ``` 
 
 - Utilize o comando abaixo para iniciar o *Metro* da aplicação:
