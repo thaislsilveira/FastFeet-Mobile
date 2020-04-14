@@ -100,9 +100,13 @@ export default function Dashboard({ navigation }) {
 
     loadDeliveries();
 
-    navigation.addListener('didFocus', () => {
+    const focusListener = navigation.addListener('didFocus', () => {
       loadDeliveries();
     });
+
+    return () => {
+      focusListener.remove();
+    };
   }, [auth.id, navigation, typeDeliveries]);
 
   return (

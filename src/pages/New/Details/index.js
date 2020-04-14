@@ -34,6 +34,17 @@ export default function Details({ navigation }) {
   useEffect(() => {
     setOrder(navigation.state.params.item);
     setDeliveryman(navigation.state.params.auth);
+
+    const focusListener = navigation.addListener('didFocus', async () => {
+      const updatedOrder = await api.get(
+        `/orders/${navigation.state.params.item.id}`
+      );
+      setOrder(updatedOrder.data[0]);
+    });
+
+    return () => {
+      focusListener.remove();
+    };
   }, [navigation]);
 
   // const profile = useSelector(state => state?.user?.profile);

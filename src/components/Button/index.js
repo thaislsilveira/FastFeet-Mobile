@@ -10,14 +10,15 @@ export default function Button({ children, loading, ...rest }) {
       {loading ? (
         <ActivityIndicator size="small" color="#FFF" />
       ) : (
-        children && <Text>{children}</Text>
+        <Text>{children}</Text>
       )}
     </Container>
   );
 }
 
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
+    .isRequired,
   loading: PropTypes.bool,
 };
 
