@@ -57,7 +57,7 @@ export const ButtonPicture = styled(RectButton)`
   justify-content: center;
   margin-bottom: 33px;
   position: absolute;
-  bottom: 40px;
+  bottom: 60px;
   left: 40%;
 `;
 
