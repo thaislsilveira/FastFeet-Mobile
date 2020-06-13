@@ -16,7 +16,6 @@ import {
   SubmitButton,
 } from './styles';
 import Background from '~/components/Background';
-import ImageBackground from '~/assets/delivery.png';
 
 export default function Confirm({ navigation }) {
   const camera = useRef(null);
